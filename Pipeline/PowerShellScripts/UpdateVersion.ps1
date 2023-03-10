@@ -1,4 +1,4 @@
-$file = ".\src\POS.NorhtAmerica\manifest.json"
+$file = ".TestRepos\src\POS.NorhtAmerica\manifest.json"
 
 # Read the file contents as a JSON object
 $json = Get-Content $file -Raw | ConvertFrom-Json
