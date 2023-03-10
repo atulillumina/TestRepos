@@ -17,4 +17,4 @@ jobs:
     - name: Run PowerShell script
       shell: powershell
       run: |
-        ./Pipeline/PowerShellScripts/UpdateVersion.ps1
+        .\Pipeline\PowerShellScripts\UpdateVersion.ps1
