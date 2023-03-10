@@ -1,10 +1,4 @@
-param(
-    [string]$RelativePath
-)
-
-# Define the full file path
-$name = "manifest.json"
-$file = $RelativePath + $name
+$file = "$(Build.SourcesDirectory)\src\POS.NorhtAmerica\manifest.json"
 
 # Read the file contents as a JSON object
 $json = Get-Content $file -Raw | ConvertFrom-Json
