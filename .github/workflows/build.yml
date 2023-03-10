@@ -24,9 +24,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: |
-          inputs:
-            targetType: filePath
-            filePath: ./Pipeline/PowerShellScripts/UpdateVersion.ps1
-            arguments: '-RelativePath "$(Build.SourcesDirectory)\src\POS.NorhtAmerica\"'
-            failOnStderr: true
+        shell: pwsh
+        run: 
+          Invoke-Pester ./Pipeline/PowerShellScripts/UpdateVersion.ps1 -Passthru
