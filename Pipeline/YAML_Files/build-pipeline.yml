@@ -14,5 +14,5 @@ steps:
     inputs:
       targetType: filePath
       filePath: ./Pipeline/PowerShellScripts/UpdateVersion.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\POS.NorhtAmerica"'
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\POS.NorhtAmerica\"'
       failOnStderr: true
