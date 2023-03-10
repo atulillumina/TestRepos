@@ -4,6 +4,8 @@ pr:
     - main
 trigger: none
 
+on:  push:    branches:      -  main
+
 pool:
   vmImage: 'windows-latest'
 
