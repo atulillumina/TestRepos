@@ -1,23 +1,32 @@
-pr: 
-  branches:
-    include:
-    - main
-trigger: none
+name: Update Version Number
 
 on:  
   push:    
-    branches: - main
+    branches: 
+    - main
   pull_request:
-    branches: - main
-pool:
-  vmImage: 'windows-latest'
+    branches: 
+    - main
+              
+  workflow_dispatch:
 
-steps:
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
-  - task: PowerShell@2
-    displayName: 'Update version'
-    inputs:
-      targetType: filePath
-      filePath: ./Pipeline/PowerShellScripts/UpdateVersion.ps1
-      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\POS.NorhtAmerica\"'
-      failOnStderr: true
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: |
+          inputs:
+            targetType: filePath
+            filePath: ./Pipeline/PowerShellScripts/UpdateVersion.ps1
+            arguments: '-RelativePath "$(Build.SourcesDirectory)\src\POS.NorhtAmerica\"'
+            failOnStderr: true
