@@ -1,0 +1,18 @@
+pr: 
+  branches:
+    include:
+    - main
+trigger: none
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+
+  - task: PowerShell@2
+    displayName: 'Update version'
+    inputs:
+      targetType: filePath
+      filePath: ./Pipeline/PowerShellScripts/UpdateVersion.ps1
+      arguments: '-RelativePath "$(Build.SourcesDirectory)\src\POS.NorhtAmerica"'
+      failOnStderr: true
