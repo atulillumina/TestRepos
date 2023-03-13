@@ -2,7 +2,7 @@ param(
     [string]$RelativePath = "./src"
 )
 
-git diff --name-only | xargs -L1 dirname | uniq
+git diff --name-only | xargs -L1 src | uniq
 
 echo "outside"
 
