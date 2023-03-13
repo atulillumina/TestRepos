@@ -2,9 +2,9 @@ param(
     [string]$RelativePath = "./src"
 )
 
-echo "outside"
+git diff --name-only | xargs -L1 dirname | uniq
 
-git diff --quiet HEAD $REF -- src || echo changed
+echo "outside"
 
 $jsonfiles = Get-ChildItem -Path $RelativePath -Filter manifest.json -Recurse
 foreach($file in $jsonfiles)
