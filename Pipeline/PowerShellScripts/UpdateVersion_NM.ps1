@@ -1,5 +1,5 @@
 param(
-    [string]$RelativePath = "./src/POS.NorhtAmerica"
+    [string]$RelativePath = "./src"
 )
 
 echo "outside"
