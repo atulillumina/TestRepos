@@ -19,7 +19,7 @@ jobs:
           
     - name: Get changed files in the src folder
       id: changed-files-specific
-      uses: atulillumina/TestRepos@v38
+      uses: atulillumina/TestRepos@v2
       with:
           files: .\src\**
           
