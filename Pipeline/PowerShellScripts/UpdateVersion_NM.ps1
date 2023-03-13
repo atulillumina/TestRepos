@@ -2,7 +2,7 @@ param(
     [string]$RelativePath = "./src"
 )
 
-$jsonfiles = Get-ChildItem -Path $RelativePath -Filter manifesh.json -Recurse
+$jsonfiles = Get-ChildItem -Path $RelativePath -Filter manifest.json -Recurse
 foreach($file in $jsonfiles)
 {
     $newContent = Invoke-WebRequest $file.FullName | ConvertFrom-Json
