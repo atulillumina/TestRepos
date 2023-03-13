@@ -2,7 +2,7 @@ param(
     [string]$RelativePath = "./src"
 )
 
-git diff --name-only HEAD~1 | sort
+git diff --name-only
 
 echo "outside"
 
