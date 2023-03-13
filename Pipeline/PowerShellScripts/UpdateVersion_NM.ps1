@@ -25,7 +25,11 @@ foreach($file in $jsonfiles)
 
     # Update the version number in the JSON object
     $json.version = $newVersion
+    
+    echo $json.version
 
     # Save the updated JSON object back to the file
     $json | ConvertTo-Json -Depth 100 | Set-Content $file
+    
+    ConvertTo-Json -InputObject $json -Depth 100 | Set-Content $file
 }
