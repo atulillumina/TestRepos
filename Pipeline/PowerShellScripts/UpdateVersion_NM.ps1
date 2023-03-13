@@ -4,6 +4,8 @@ param(
 
 echo "outside"
 
+git diff --quiet HEAD $REF -- $DIR || echo changed
+
 $jsonfiles = Get-ChildItem -Path $RelativePath -Filter manifest.json -Recurse
 foreach($file in $jsonfiles)
 {
