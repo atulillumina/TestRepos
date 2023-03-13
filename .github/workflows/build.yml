@@ -14,8 +14,18 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+      with:
+          fetch-depth: 0
+          
+    - name: Get changed files in the src folder
+      id: changed-files-specific
+      uses: atulillumina/TestRepos@v1
+      with:
+          files: .\src\**
+          
     - name: Run PowerShell script
       shell: pwsh
+      if: steps.changed-files-specific.outputs.any_changed == 'true'
       run: |
         .\Pipeline\PowerShellScripts\UpdateVersion_NM.ps1
       env:
