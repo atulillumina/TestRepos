@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run PowerShell script
-      shell: powershell
+      shell: pwsh
       run: |
         .\Pipeline\PowerShellScripts\UpdateVersion.ps1
