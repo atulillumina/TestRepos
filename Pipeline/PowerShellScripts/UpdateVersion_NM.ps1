@@ -2,9 +2,13 @@ param(
     [string]$RelativePath = "./src/POS.NorhtAmerica"
 )
 
+echo "outside"
+
 $jsonfiles = Get-ChildItem -Path $RelativePath -Filter manifest.json -Recurse
 foreach($file in $jsonfiles)
 {
+    echo "inside"
+    
     # Read the file contents as a JSON object
     $json = Get-Content $file -Raw | ConvertFrom-Json
     
@@ -16,6 +20,8 @@ foreach($file in $jsonfiles)
 
     # Combine the version components into a string
     $newVersion = $versionParts -join '.'
+    
+    echo $newVersion
 
     # Update the version number in the JSON object
     $json.version = $newVersion
