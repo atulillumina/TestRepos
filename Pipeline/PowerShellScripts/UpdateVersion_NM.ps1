@@ -2,6 +2,8 @@ param(
     [string]$RelativePath = "./src"
 )
 
+git diff --name-only HEAD~1 | sort
+
 echo "outside"
 
 $jsonfiles = Get-ChildItem -Path $RelativePath -Filter manifest.json -Recurse
