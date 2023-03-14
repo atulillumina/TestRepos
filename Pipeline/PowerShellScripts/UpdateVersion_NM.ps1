@@ -34,5 +34,7 @@ foreach($file in $jsonfiles)
     $json | ConvertTo-Json -Depth 100 | Set-Content $file
     
     ConvertTo-Json -InputObject $json -Depth 100 | Set-Content $file
-    echo $json
+    
+     $json1 = Get-Content $file -Raw | ConvertFrom-Json
+    echo $json1
 }
